@@ -1,0 +1,13 @@
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\dbdemo.mdf
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\dbdemo_log.ldf
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\DEMO.LOGIC.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\DEMO.LOGIC.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\demo.da.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\DEMO.MODEL.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\demo.da.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\DEMO.MODEL.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\obj\Debug\DEMO.LOGIC.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\obj\Debug\DEMO.LOGIC.dll
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\appDemo\DEMO.LOGIC\obj\Debug\DEMO.LOGIC.pdb

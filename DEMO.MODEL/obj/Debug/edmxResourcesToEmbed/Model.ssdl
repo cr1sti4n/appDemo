@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="demoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="desc" Type="varchar" MaxLength="500" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="updatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="char" MaxLength="9" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="updatedAt" Type="datetime" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\USUARIO\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\APPDEMO\DEMO.MODEL\DBDEMO.MDF.dbo.StudentCourse' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="StudentCourse">
+    <Key>
+      <PropertyRef Name="idstudent" />
+      <PropertyRef Name="idcourse" />
+    </Key>
+    <Property Name="idstudent" Type="int" Nullable="false" />
+    <Property Name="idcourse" Type="int" Nullable="false" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="updatedAt" Type="datetime" />
+  </EntityType>
+  <Association Name="fk_course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="StudentCourse" Type="Self.StudentCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StudentCourse">
+        <PropertyRef Name="idcourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="StudentCourse" Type="Self.StudentCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StudentCourse">
+        <PropertyRef Name="idstudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="demoModelStoreContainer">
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourse" EntityType="Self.StudentCourse" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[StudentCourse].[idstudent] AS [idstudent], 
+[StudentCourse].[idcourse] AS [idcourse], 
+[StudentCourse].[status] AS [status], 
+[StudentCourse].[createdAt] AS [createdAt], 
+[StudentCourse].[updatedAt] AS [updatedAt]
+FROM [dbo].[StudentCourse] AS [StudentCourse]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_course" Association="Self.fk_course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="StudentCourse" EntitySet="StudentCourse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student" Association="Self.fk_student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="StudentCourse" EntitySet="StudentCourse" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
